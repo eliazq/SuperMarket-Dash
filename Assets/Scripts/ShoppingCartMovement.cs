@@ -18,7 +18,7 @@ public class ShoppingCartMovement : MonoBehaviour
 
     // Ground Check
     bool isGrounded;
-    private float groundCheckRaidus = 0.3f;
+    private float groundCheckRaidus = 0.4f;
     bool jump = false; // if true, jump force will be added
 
     private void Start() {

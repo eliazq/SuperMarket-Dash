@@ -54,6 +54,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &3174537596434309958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181316062945869501}
+  m_Layer: 0
+  m_Name: HitCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1181316062945869501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174537596434309958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.035, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2259481392306501988}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4251301614286587082
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2259481392306501988}
+  - component: {fileID: 7713577419429678810}
   - component: {fileID: 2518330771072276094}
   - component: {fileID: 1836991632677603322}
   - component: {fileID: 907943441023012724}
@@ -93,8 +125,28 @@ Transform:
   m_Children:
   - {fileID: 5228055551018849246}
   - {fileID: 7383658076647642435}
+  - {fileID: 1181316062945869501}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7713577419429678810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251301614286587082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52515cab316c15c46ad3913504aeab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitCastTransform: {fileID: 1181316062945869501}
+  hitCastSize: {x: 0.45, y: 0.325, z: 0.07}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  hitObstacleForce: 100
+  visualObject: {fileID: 6112668092448161076}
 --- !u!114 &2518330771072276094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,9 +174,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4251301614286587082}
   serializedVersion: 4
-  m_Mass: 30
+  m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -148,7 +200,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4251301614286587082}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7abc720d1c729d74e8b77ee33849ae18, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -169,7 +221,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4251301614286587082}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7abc720d1c729d74e8b77ee33849ae18, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -190,7 +242,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4251301614286587082}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7abc720d1c729d74e8b77ee33849ae18, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -211,7 +263,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4251301614286587082}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7abc720d1c729d74e8b77ee33849ae18, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -232,7 +284,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4251301614286587082}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7abc720d1c729d74e8b77ee33849ae18, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -253,7 +305,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4251301614286587082}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7abc720d1c729d74e8b77ee33849ae18, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
