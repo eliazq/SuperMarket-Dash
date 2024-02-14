@@ -12,7 +12,7 @@ public class ShoppingCartMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Animator animator;
     [Header("Movement Settings")]
-    //[SerializeField] private float runSpeed = 8f;
+    [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float jumpForce = 10f;
 
     // Ground Check
@@ -34,8 +34,7 @@ public class ShoppingCartMovement : MonoBehaviour
         velocity = new Vector3(velocity.x, rigidbody.velocity.y, velocity.y);
         if (jump) Jump();
         animator.SetFloat("VelocityY", velocity.y);
-        //rigidbody.velocity = velocity + (Vector3.forward * runSpeed);
-        rigidbody.velocity = velocity;
+        rigidbody.velocity = velocity + (Vector3.forward * runSpeed);
     }
 
     private void Jump()
