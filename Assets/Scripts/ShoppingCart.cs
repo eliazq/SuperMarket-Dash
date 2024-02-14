@@ -35,11 +35,21 @@ public class ShoppingCart : MonoBehaviour
 
     private void Die()
     {
-        isDead = true;
-        GetComponent<ShoppingCartMovement>().enabled = false;
+        if (!isDead)
+        {
+            isDead = true;
+            GetComponent<ShoppingCartMovement>().enabled = false;
 
-        visualObject.GetComponent<Collider>().enabled = true;
-        visualObject.AddComponent<Rigidbody>();
+            visualObject.GetComponent<Collider>().enabled = true;
+            visualObject.AddComponent<Rigidbody>();
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.collider.TryGetComponent(out Obstacle obstacle))
+        {
+            Die();
+        }
     }
 
     private void OnDrawGizmos() {
