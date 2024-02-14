@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ShoppingCartMovement : MonoBehaviour
 {
-    private Rigidbody rigidbody;
+
+    private Rigidbody rb;
     Vector3 velocity = new Vector3(0, 1, 0);
     [Header("References")]
     [SerializeField] private LayerMask groundLayer;
@@ -21,7 +22,7 @@ public class ShoppingCartMovement : MonoBehaviour
     bool jump = false; // if true, jump force will be added
 
     private void Start() {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update() {
@@ -31,10 +32,10 @@ public class ShoppingCartMovement : MonoBehaviour
         if (!isGrounded) jump = false;
     }
     private void FixedUpdate() {
-        velocity = new Vector3(velocity.x, rigidbody.velocity.y, velocity.y);
+        velocity = new Vector3(velocity.x, rb.velocity.y, runSpeed);
         if (jump) Jump();
         animator.SetFloat("VelocityY", velocity.y);
-        rigidbody.velocity = velocity + (Vector3.forward * runSpeed);
+        rb.velocity = velocity;
     }
 
     private void Jump()
