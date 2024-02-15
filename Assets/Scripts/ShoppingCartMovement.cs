@@ -29,7 +29,12 @@ public class ShoppingCartMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRaidus, groundLayer);
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             jump = true;
-        if (!isGrounded) jump = false;
+        if (!isGrounded)
+        {
+            jump = false;
+            SoundManager.StopSoundAudioSource(SoundManager.Sound.PlayerMove);
+        }
+        else SoundManager.PlaySoundAudioSource(SoundManager.Sound.PlayerMove);
     }
     private void FixedUpdate() {
         velocity = new Vector3(velocity.x, rb.velocity.y, runSpeed);
@@ -40,6 +45,7 @@ public class ShoppingCartMovement : MonoBehaviour
 
     private void Jump()
     {
+        SoundManager.PlaySound(SoundManager.Sound.PlayerJump);
         velocity.y = jumpForce;
     }
 }
