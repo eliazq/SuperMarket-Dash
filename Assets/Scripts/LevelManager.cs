@@ -25,21 +25,11 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-
-        ChangeLevel(mainMenuSceneName);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // When scene is loaded
-        if (scene.path == GetSceneDetails(mainMenuSceneName).ScenePath)
-        {
 
-        }
-        else
-        {
-
-        }
     }
 
     /// <summary>

@@ -66,7 +66,7 @@ public static class SoundManager
     }
     public static void StopSoundAudioSource(Sound sound)
     {
-        GetSoundAudioSourceOfSound(sound).audioSource.Stop();
+        GetSoundAudioSourceOfSound(sound)?.audioSource.Stop();
     }
     public static void PlaySound(AudioClip audioClip)
     {

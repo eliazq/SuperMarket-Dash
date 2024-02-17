@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ShoppingCartMovement : MonoBehaviour
 {
-
     private Rigidbody rb;
     Vector3 velocity = new Vector3(0, 1, 0);
     [Header("References")]

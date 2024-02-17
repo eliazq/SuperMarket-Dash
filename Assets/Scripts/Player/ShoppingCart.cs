@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShoppingCart : MonoBehaviour
 {
+    public static ShoppingCart Instance;
     [Header("References")]
     [SerializeField] private Transform hitCastTransform;
     [SerializeField] private Vector3 hitCastSize;
@@ -14,8 +16,36 @@ public class ShoppingCart : MonoBehaviour
     [Space(10)]
     [Header("Dying Visual Objects")]
     [SerializeField] private GameObject visualObject;
+    private ShoppingCartMovement cartMovement;
 
     bool isDead = false;
+
+    private void Awake() {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        cartMovement = GetComponent<ShoppingCartMovement>();
+        SceneManager.sceneLoaded += SceneChanged_Action;
+    }
+
+    private void SceneChanged_Action(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (!cartMovement.enabled)
+        {
+            cartMovement.enabled = true;
+        }
+    }
     
     private void Update() {
 
