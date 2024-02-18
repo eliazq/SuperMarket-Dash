@@ -81,6 +81,14 @@ public class ShoppingCart : MonoBehaviour
             Die();
         }
     }
+    
+    private void OnTriggerEnter(Collider other) {
+        if (other.TryGetComponent(out Goal goal))
+        {
+            goal.WonLevel();
+            Debug.Log("Won The Level From Player");
+        }
+    }
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;

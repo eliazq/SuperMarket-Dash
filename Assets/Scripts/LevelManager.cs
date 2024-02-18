@@ -29,7 +29,14 @@ public class LevelManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        if (scene.path == GetSceneDetails(mainMenuSceneName).ScenePath)
+        {
+            ShoppingCart.Instance.GetComponent<ShoppingCartMovement>().enabled = false;
+        }
+        else
+        {
+            ShoppingCart.Instance.GetComponent<ShoppingCartMovement>().enabled = true;
+        }
     }
 
     /// <summary>
@@ -76,6 +83,11 @@ public class LevelManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex + 1 <= SceneManager.sceneCountInBuildSettings)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         else Debug.LogError("Does not exist in build index");
+    }
+
+    public void LoadCurrentLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 

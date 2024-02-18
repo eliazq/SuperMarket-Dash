@@ -24,6 +24,11 @@ public class MainMenuDirector : MonoBehaviour
         StartCoroutine(GradualRewind());
     }
 
+    public void LoadLevel(string level)
+    {
+        LevelManager.Instance.ChangeLevel(level);
+    }
+
     IEnumerator GradualRewind()
     {
         float startTime = (float)director.time;
