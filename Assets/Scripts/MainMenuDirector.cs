@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 public class MainMenuDirector : MonoBehaviour
 {
     PlayableDirector director;
+    //time to go back in playabledirector
     private float rewindDuration = 1f;
 
     private void Start() {
