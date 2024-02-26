@@ -4,7 +4,7 @@
 
 <h2>GAME ANALYSIS</h2>
 
-<p>You're a shopping cart in a different supermarket levels. <br>You can only jump to avoid obstacles as you move forward through the supermarket. Similar to geometry dash</p>
+<p>SuperMarket Dash is a mobile game where you're a shopping cart in a different supermarket levels. <br>You can only jump to avoid obstacles as you move forward through the supermarket. Similar to geometry dash</p>
 
 <br>
 <h3>Game Concept</h3> 
