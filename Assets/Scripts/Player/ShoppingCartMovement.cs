@@ -26,7 +26,7 @@ public class ShoppingCartMovement : MonoBehaviour
 
     private void Update() {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRaidus, groundLayer);
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0) && isGrounded)
             jump = true;
         if (!isGrounded)
         {
@@ -40,6 +40,11 @@ public class ShoppingCartMovement : MonoBehaviour
         if (jump) Jump();
         animator.SetFloat("VelocityY", velocity.y);
         rb.velocity = velocity;
+    }
+
+    public void ResetAnim()
+    {
+        animator.SetFloat("VelocityY", 0f);
     }
 
     private void Jump()

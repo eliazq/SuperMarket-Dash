@@ -5,48 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class ShoppingCart : MonoBehaviour
 {
-    public static ShoppingCart Instance;
+
     [Header("References")]
     [SerializeField] private Transform hitCastTransform;
     [SerializeField] private Vector3 hitCastSize;
+    private ShoppingCartMovement shoppingCartMovement;
     // to ignore this gameobject in castCheck
     [SerializeField] private LayerMask obstacleLayer;
     [Header("Settings")]
     [SerializeField] private float hitObstacleForce = 100f;
     [Space(10)]
     [Header("Dying Visual Objects")]
-    [SerializeField] private GameObject visualObject;
-    private ShoppingCartMovement cartMovement;
+    [SerializeField] private GameObject shoppingCartHandleVisual;
 
     bool isDead = false;
 
-    private void Awake() {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
+    private void Start() {
+        shoppingCartMovement = GetComponent<ShoppingCartMovement>();
     }
 
-    private void Start()
-    {
-        cartMovement = GetComponent<ShoppingCartMovement>();
-        SceneManager.sceneLoaded += SceneChanged_Action;
-    }
-
-    private void SceneChanged_Action(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        if (!cartMovement.enabled)
-        {
-            cartMovement.enabled = true;
-        }
-    }
-    
     private void Update() {
 
         if (HitObstacle() && !isDead)
@@ -68,26 +45,30 @@ public class ShoppingCart : MonoBehaviour
         if (!isDead)
         {
             isDead = true;
-            GetComponent<ShoppingCartMovement>().enabled = false;
-
-            visualObject.GetComponent<Collider>().enabled = true;
-            visualObject.AddComponent<Rigidbody>();
+            DisableMovement();
+            shoppingCartHandleVisual.GetComponent<Collider>().enabled = true;
+            shoppingCartHandleVisual.AddComponent<Rigidbody>();
+            SoundManager.StopSoundAudioSource(SoundManager.Sound.PlayerMove);
+            PauseCanvas.Instance.Show();
         }
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if (other.collider.TryGetComponent(out Obstacle obstacle))
-        {
-            Die();
-        }
-    }
-    
     private void OnTriggerEnter(Collider other) {
-        if (other.TryGetComponent(out Goal goal))
+        if (other.TryGetComponent(out Goal goal) && !goal.hasWon)
         {
-            goal.WonLevel();
-            Debug.Log("Won The Level From Player");
+            WonLevel(goal);
         }
+    }
+
+    private void WonLevel(Goal goal)
+    {
+        goal.WonLevel();
+        DisableMovement();
+    }
+
+    private void DisableMovement()
+    {
+        shoppingCartMovement.enabled = false;
     }
 
     private void OnDrawGizmos() {

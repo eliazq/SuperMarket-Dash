@@ -145,8 +145,8 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
-  hitObstacleForce: 100
-  visualObject: {fileID: 6112668092448161076}
+  hitObstacleForce: 50
+  shoppingCartHandleVisual: {fileID: 6112668092448161076}
 --- !u!114 &2518330771072276094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2993429712912527086, guid: ed450fddc7b4dea41be6d766dc7f1443,
+        type: 3}
+      propertyPath: m_Name
+      value: Handler
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ed450fddc7b4dea41be6d766dc7f1443,
         type: 3}
