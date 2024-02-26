@@ -64,6 +64,7 @@ public class ShoppingCart : MonoBehaviour
     {
         goal.WonLevel();
         DisableMovement();
+        SoundManager.StopSoundAudioSource(SoundManager.Sound.PlayerMove); 
     }
 
     private void DisableMovement()
