@@ -42,6 +42,11 @@ public class ShoppingCartMovement : MonoBehaviour
         rb.velocity = velocity;
     }
 
+    public void ResetAnim()
+    {
+        animator.SetFloat("VelocityY", 0f);
+    }
+
     private void Jump()
     {
         SoundManager.PlaySound(SoundManager.Sound.PlayerJump);

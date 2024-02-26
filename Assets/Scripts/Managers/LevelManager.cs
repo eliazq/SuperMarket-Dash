@@ -29,14 +29,6 @@ public class LevelManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.path == GetSceneDetails(mainMenuSceneName).ScenePath)
-        {
-            ShoppingCart.Instance.GetComponent<ShoppingCartMovement>().enabled = false;
-        }
-        else
-        {
-            ShoppingCart.Instance.GetComponent<ShoppingCartMovement>().enabled = true;
-        }
     }
 
     /// <summary>
