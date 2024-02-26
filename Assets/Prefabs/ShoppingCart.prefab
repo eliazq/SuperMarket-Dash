@@ -165,7 +165,7 @@ MonoBehaviour:
   groundCheck: {fileID: 7383658076647642435}
   animator: {fileID: 6499477735955542719}
   runSpeed: 4
-  jumpForce: 6
+  jumpForce: 7
 --- !u!54 &1836991632677603322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4251301614286587082}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 40
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -346,7 +346,7 @@ Transform:
   m_GameObject: {fileID: 7137102710487575912}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.451, z: 0}
+  m_LocalPosition: {x: 0, y: -0.387, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
