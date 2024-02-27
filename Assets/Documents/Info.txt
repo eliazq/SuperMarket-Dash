@@ -1,0 +1,4 @@
+Important Stuff About The Game
+
+Player:
+Jump Distance = 3 Unit
