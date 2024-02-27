@@ -145,7 +145,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
-  hitObstacleForce: 50
+  hitObstacleForce: 100
   shoppingCartHandleVisual: {fileID: 6112668092448161076}
 --- !u!114 &2518330771072276094
 MonoBehaviour:
