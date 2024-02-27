@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class ShoppingCart : MonoBehaviour
     [Header("Dying Visual Objects")]
     [SerializeField] private GameObject shoppingCartHandleVisual;
 
+    public static event EventHandler OnDying;
+
     bool isDead = false;
 
     private void Start() {
@@ -30,7 +33,7 @@ public class ShoppingCart : MonoBehaviour
         if (HitObstacle() && !isDead)
         {
             Die();
-            Vector3 hitDir = new Vector3(Random.Range(-hitObstacleForce, hitObstacleForce), 0, -hitObstacleForce);
+            Vector3 hitDir = new Vector3(UnityEngine.Random.Range(-hitObstacleForce, hitObstacleForce), 0, -hitObstacleForce);
             GetComponent<Rigidbody>().AddForce(hitDir, ForceMode.Impulse);
         }
 
@@ -46,6 +49,7 @@ public class ShoppingCart : MonoBehaviour
         if (!isDead)
         {
             isDead = true;
+            OnDying?.Invoke(this, EventArgs.Empty);
             DisableMovement();
             shoppingCartHandleVisual.GetComponent<Collider>().enabled = true;
             shoppingCartHandleVisual.AddComponent<Rigidbody>();

@@ -594,6 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasVisuals: {fileID: 6010707820245482170}
+  progressBar: {fileID: 4949083739078545782}
 --- !u!1 &4718563785367662227
 GameObject:
   m_ObjectHideFlags: 0
