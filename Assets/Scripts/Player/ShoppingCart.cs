@@ -12,6 +12,7 @@ public class ShoppingCart : MonoBehaviour
     private ShoppingCartMovement shoppingCartMovement;
     // to ignore this gameobject in castCheck
     [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private LayerMask killableLayer;
     [Header("Settings")]
     [SerializeField] private float hitObstacleForce = 100f;
     [Space(10)]
@@ -57,6 +58,13 @@ public class ShoppingCart : MonoBehaviour
         if (other.TryGetComponent(out Goal goal) && !goal.hasWon)
         {
             WonLevel(goal);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if (((1 << other.gameObject.layer) & killableLayer) != 0)
+        {
+            Die();
         }
     }
 
