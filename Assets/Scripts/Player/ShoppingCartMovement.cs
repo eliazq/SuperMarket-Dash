@@ -33,7 +33,10 @@ public class ShoppingCartMovement : MonoBehaviour
             jump = false;
             SoundManager.StopSoundAudioSource(SoundManager.Sound.PlayerMove);
         }
-        else SoundManager.PlaySoundAudioSource(SoundManager.Sound.PlayerMove);
+        else
+        {
+            SoundManager.PlaySoundAudioSource(SoundManager.Sound.PlayerMove);
+        }
     }
     private void FixedUpdate() {
         velocity = new Vector3(velocity.x, rb.velocity.y, runSpeed);
