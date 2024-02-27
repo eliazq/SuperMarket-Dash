@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     private const string mainMenuSceneName = "MainMenu";
 
     public static LevelManager Instance;
+    public Level CurrentLevel {get; private set;}
 
     void Awake()
     {
@@ -49,6 +50,19 @@ public class LevelManager : MonoBehaviour
         return null;
     }
 
+    public Level GetLevel(string levelName)
+    {
+        foreach (Level level in levels)
+        {
+            if (level.levelName.Equals(levelName))
+            {
+                return level;
+            }
+        }
+
+        return null;
+    }
+
     /// <summary>
     /// LevelManager.Instance.ChangeLevel("Level Name")
     /// Loads Scene If Scene Exist With That Name
@@ -59,6 +73,7 @@ public class LevelManager : MonoBehaviour
         if (GetSceneDetails(newLevelName) != null)
         {
             Debug.Log("LEVEL MANAGER - Loading Level: " + newLevelName);
+            CurrentLevel = GetLevel(newLevelName);
             SceneManager.LoadScene(GetSceneDetails(newLevelName));
         }
         else
@@ -81,6 +96,8 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    
 }
 
 [System.Serializable]

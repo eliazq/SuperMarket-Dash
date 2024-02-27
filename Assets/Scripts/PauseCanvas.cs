@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseCanvas : MonoBehaviour
 {
     public static PauseCanvas Instance;
     [SerializeField] private GameObject canvasVisuals;
+    public Image progressBar;
+
+    public event EventHandler OnPauseCanvasShown;
 
     private void Awake()
     {
@@ -22,6 +27,7 @@ public class PauseCanvas : MonoBehaviour
     }
     public void Show()
     {
+        OnPauseCanvasShown?.Invoke(this, EventArgs.Empty);
         canvasVisuals.SetActive(true);
     }
 
