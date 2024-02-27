@@ -79,7 +79,7 @@ Transform:
   m_GameObject: {fileID: 3174537596434309958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.035, z: 0.6}
+  m_LocalPosition: {x: 0, y: -0.134, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitCastTransform: {fileID: 1181316062945869501}
-  hitCastSize: {x: 0.45, y: 0.325, z: 0.07}
+  hitCastSize: {x: 0.45, y: 0.4, z: 0.07}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64

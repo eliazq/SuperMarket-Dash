@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -527,6 +527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3838600106251003533, guid: fcfcc82f796b0984c84aa975716b9cac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6010707820245482170, guid: fcfcc82f796b0984c84aa975716b9cac,
         type: 3}
       propertyPath: m_IsActive
@@ -596,6 +601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942176305793919426, guid: fcfcc82f796b0984c84aa975716b9cac,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1065,7 +1075,7 @@ MonoBehaviour:
   - levelName: MainMenu
     scene:
       sceneAsset: {fileID: 102900000, guid: 7649a50392524f6408b785b7aeefb5b0, type: 3}
-      scenePath: Assets/Scenes/MainMenu.unity
+      scenePath: Assets/Scenes/MainMenu/MainMenu.unity
   - levelName: Level0
     scene:
       sceneAsset: {fileID: 102900000, guid: be075eeda9392bf48bf2e9a3bc8bdd13, type: 3}
